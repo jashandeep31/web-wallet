@@ -1,16 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Copy } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { generateMnemonic, mnemonicToSeedSync } from "bip39";
 import { derivePath } from "ed25519-hd-key";
-import { Keypair, PublicKey } from "@solana/web3.js";
+import { Keypair } from "@solana/web3.js";
 import nacl from "tweetnacl";
 import bs58 from "bs58";
-import Link from "next/link";
 import SendMoneyDialog from "@/components/sendMoney";
 import { toast } from "sonner";
+import WalletCard from "@/components/walletCard";
 
 const Page = () => {
   const [walletSeed, setWalletSeed] = useState<null | {
@@ -107,24 +106,7 @@ const Page = () => {
         <h2 className="text-lg md:text-xl font-bold">Wallets</h2>
         <div className="grid mt-3 lg:grid-cols-4 md:grid-cols-2 gap-6">
           {wallets.map((wallet, index) => (
-            <div key={index} className="border rounded-md p-3">
-              <h3 className="font-bold underline">
-                <Link href={`/${wallet.public}`}>Account {index + 1} </Link>
-              </h3>
-
-              <div className="flex items-center gap-2 justify-between mt-2">
-                <p>{wallet.public.slice(0, 7)}...</p>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation(); // Prevent the Link click event
-                    navigator.clipboard.writeText(wallet.public);
-                  }}
-                  className="hover:bg-muted duration-300 text-muted-foreground hover:text-foreground"
-                >
-                  <Copy size={13} />
-                </button>
-              </div>
-            </div>
+            <WalletCard wallet={wallet} index={index} key={index} />
           ))}
         </div>
       </div>

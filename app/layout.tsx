@@ -23,12 +23,14 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col">
           <div className="border-b py-4">
             <div className="container flex gap-6 items-center">
-              <h1 className="text-lg md:text-xl font-bold flex items-center gap-2">
-                <span>Web wallet </span>
-                <span className="text-xs text-muted-foreground border rounded-full p-1">
-                  devnet
-                </span>
-              </h1>
+              <Link href={"/"}>
+                <h1 className="text-lg md:text-xl font-bold flex items-center gap-2">
+                  <span>Web wallet </span>
+                  <span className="text-xs text-muted-foreground border rounded-full p-1">
+                    devnet
+                  </span>
+                </h1>
+              </Link>
               <Link className="text-sm text-muted-foreground" href={"/"}>
                 Home
               </Link>
