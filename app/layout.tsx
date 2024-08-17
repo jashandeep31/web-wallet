@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Toaster richColors />
+        <div className="min-h-screen flex flex-col">
+          <div className="border-b py-4">
+            <div className="container flex gap-3 items-center">
+              <h1 className="text-lg md:text-xl font-bold">Web wallet</h1>
+              <Link className="text-sm text-muted-foreground" href={"/"}>
+                Home
+              </Link>
+            </div>
+          </div>
+          <main className="flex-1">{children}</main>
+          <footer className="border-t py-3">
+            <div className="container">
+              <p>@jashandeep31</p>
+            </div>
+          </footer>
+        </div>
+      </body>
     </html>
   );
 }
