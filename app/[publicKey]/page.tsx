@@ -79,7 +79,10 @@ const Page = () => {
   }, [pathname, connection]);
 
   const getAirDrop = async () => {
-    const toastId = toast.loading("Requesting airdrop takes 2min");
+    const toastId = toast.loading("Requesting airdrop takes 2min", {
+      description:
+        "Sometime its fails due to sol net so you can use sol faucet to do so.",
+    });
     try {
       const publicKey = pathname.replace("/", "");
 
@@ -101,7 +104,11 @@ const Page = () => {
       toast.success("Airdrop successfull", { id: toastId });
       getTransactions();
     } catch (error) {
-      toast.error("Something went wrong in airdrop", { id: toastId });
+      toast.error("Something went wrong in airdrop", {
+        description:
+          "Sometime its fails due to sol net so you can use sol faucet to do so.",
+        id: toastId,
+      });
     }
   };
   useEffect(() => {
