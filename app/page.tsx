@@ -94,18 +94,18 @@ const Page = () => {
         <Button onClick={createSeed}>Create Phrase</Button>
       </div>
       <div className="mt-6 space-x-4">
+        <Button onClick={createWallet} variant={"outline"}>
+          Add Wallet
+        </Button>
         {wallets.length >= 1 && (
           <Button onClick={() => setSendMoneyDialogState(true)}>
             Send Money
           </Button>
         )}
-        <Button onClick={createWallet} variant={"outline"}>
-          Add Wallet
-        </Button>
       </div>
       <div className="mt-12">
         <h2 className="text-lg md:text-xl font-bold">Wallets</h2>
-        <div className="grid mt-3 grid-cols-4 gap-6">
+        <div className="grid mt-3 lg:grid-cols-4 md:grid-cols-2 gap-6">
           {wallets.map((wallet, index) => (
             <div key={index} className="border rounded-md p-3">
               <h3 className="font-bold underline">
