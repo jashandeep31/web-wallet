@@ -39,7 +39,9 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <footer className="border-t py-3">
             <div className="container">
-              <p>@jashandeep31</p>
+              <p>
+                <Link href={"https://x.com/Jashandeep31"}>@jashandeep31</Link>
+              </p>
             </div>
           </footer>
         </div>
