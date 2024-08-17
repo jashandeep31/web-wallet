@@ -128,7 +128,7 @@ const Page = () => {
       <p className="font-bold text-muted-foreground">
         Balance : {balance.amount / LAMPORTS_PER_SOL} SOL
       </p>
-      <div>
+      <div className="mt-4">
         <Button onClick={getAirDrop}>Request AirDrop</Button>
       </div>
       <div className="mt-6">
